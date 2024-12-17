@@ -1,0 +1,53 @@
+{% include "header.html" %}
+
+<!-- Page Header -->
+<header
+  class="masthead d-block w-100"
+  style="
+    background-image: url('static/boliviainteligente-BsHarhZMmpg-unsplash.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;"
+>
+  <div class="container text-center text-white" style="padding-top: 30vh;">
+    <h1 class="display-4">Mars Weather Report</h1>
+    <p class="lead">Stay updated with the latest atmospheric conditions on the Red Planet.</p>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="mb-4 mt-5">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <!-- Temperature Summary -->
+        <h2 class="mb-4">Temperature Overview</h2>
+        <ul class="list-group mb-5">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Average Temperature: <span class="badge bg-primary rounded-pill">{{ average_temp }}°C</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Minimum Temperature: <span class="badge bg-info rounded-pill">{{ min_temp }}°C</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            Maximum Temperature: <span class="badge bg-danger rounded-pill">{{ max_temp }}°C</span>
+          </li>
+        </ul>
+
+        <!-- Date Collection -->
+        <h2 class="mb-4">Weather Data Dates</h2>
+        <p>Here are the recorded dates for the weather data collection:</p>
+        <ul class="list-group">
+          {% for date in first_utc_date %}
+          <li class="list-group-item">
+            {{ date }}
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}
